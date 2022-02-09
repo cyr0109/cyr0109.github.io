@@ -2782,14 +2782,13 @@ ul.breadcrumb li:last-child {
   }
 }
 body {
-  background: url("https://2.bp.blogspot.com/-C8vnMOJVWRI/XIkaFbYfEcI/AAAAAAAAAgo/FIBvarQjNwwTVb5OPnpRhUjTU1lcnuQMwCKgBGAs/w3840-h1600-c/anime-sce");
+  background: url("/img/bg.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: center center;
 }
 .main-inner {
-  background: #fff;
   opacity: 0.95;
 }
 .header-inner {
