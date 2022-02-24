@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#222" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 6.0.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" integrity="sha256-mUZM63G8m73Mcidfrv5E+Y61y7a12O5mW4ezU3bxqW4=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/themes/blue/pace-theme-minimal.css">
+  <script src="https://cdn.jsdelivr.net/npm/pace-js@1.2.4/pace.min.js" integrity="sha256-gqd7YTjg/BtfqWSwsJOvndl0Bxc8gFImLEkXQT8+qj0=" crossorigin="anonymous"></script>
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"cyr0109.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":true,"version":"8.10.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜尋...","empty":"我們無法找到任何有關 ${query} 的搜索結果","hits_time":"${hits} 找到 ${time} 個結果","hits":"找到 ${hits} 個結果"}}</script><script src="/js/config.js"></script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D塔防遊戲自學計畫">
+<meta property="og:url" content="http://cyr0109.github.io/2022/02/25/Unity3D%E5%A1%94%E9%98%B2%E9%81%8A%E6%88%B2%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/index.html">
+<meta property="og:site_name" content="CYRの甲島">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="http://cyr0109.github.io/img/巨人.jpg">
+<meta property="og:image" content="https://lh6.googleusercontent.com/uffu1oqJ_tUIgGuPYyvOKTnHnY1qr_4R8gwLqKf4ahSc8OAMfS3jsCtcETMJleMcq8m1wUxWpWFc18YKqms_wxtNGlZP7N_WL6u0drz93Lx8O3HMXtwB5DLjcydwwdA4yXGaVzk9">
+<meta property="og:image" content="https://lh5.googleusercontent.com/8xrF78CESJ6L6YAxMGSLVXZJIO8p_Otd4INF5Wjfp--noUEt2_RUdMflaXlFfM4GS_TiMjF3JAHac3cS9Bb-ndq6KxzrOb5hxHXz-jUsxN52hi6VSXwdwNZRun3VdkQloDSD8sVb">
+<meta property="og:image" content="https://lh4.googleusercontent.com/NqXft2Pj1K16BMTM_b8mmTuD4zrqcRDioXOrYDrnW-zeIysx_4ZHNGwRwh4GNBRu-2lAHrQqWPZBQzwLE2CqI5mzcQKTJCRBJZJ-xngY9fDJYMewvQPw-VE1PJTf1H_2-al1QgJK">
+<meta property="og:image" content="https://i.imgur.com/lgTLJQ5.png">
+<meta property="og:image" content="https://i.imgur.com/kPYaWr5.png">
+<meta property="og:image" content="https://i.imgur.com/WaIaEDP.png">
+<meta property="article:published_time" content="2022-02-24T16:36:18.000Z">
+<meta property="article:modified_time" content="2022-02-24T16:45:23.332Z">
+<meta property="article:author" content="CYR">
+<meta property="article:tag" content="CYR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://cyr0109.github.io/img/巨人.jpg">
+
+
+<link rel="canonical" href="http://cyr0109.github.io/2022/02/25/Unity3D%E5%A1%94%E9%98%B2%E9%81%8A%E6%88%B2%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-TW","comments":true,"permalink":"http://cyr0109.github.io/2022/02/25/Unity3D%E5%A1%94%E9%98%B2%E9%81%8A%E6%88%B2%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/","path":"2022/02/25/Unity3D塔防遊戲自學計畫/","title":"Unity3D塔防遊戲自學計畫"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Unity3D塔防遊戲自學計畫 | CYRの甲島</title>
+  
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">CYRの甲島</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">です</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a></li>
+        <li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a></li>
+        <li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a></li>
+        <li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a></li>
+        <li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a></li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%95%E6%A9%9F"><span class="nav-number">1.</span> <span class="nav-text">動機</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99"><span class="nav-number">2.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99"><span class="nav-number">3.</span> <span class="nav-text">事前準備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8A%E6%88%B2%E5%AF%A6%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">遊戲實作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-%E9%8B%AA%E8%A8%AD%E5%9C%B0%E5%9C%96"><span class="nav-number">4.1.</span> <span class="nav-text">Part 1:鋪設地圖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2-Enemy%E8%A8%AD%E5%AE%9A"><span class="nav-number">4.2.</span> <span class="nav-text">Part 2:Enemy設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%BB%BA%E7%AB%8BEnemy%EF%BC%8C%E4%B8%A6%E6%8B%96%E6%9B%B3%E9%80%B2Prefab%E8%B3%87%E6%96%99%E5%A4%BE%EF%BC%8C%E4%BB%A5%E4%BE%BF%E4%B9%8B%E5%BE%8C%E6%AF%8F%E4%B8%80%E6%AC%A1%E5%91%BC%E5%8F%AB%E9%83%BD%E8%83%BD%E8%A2%ABclone%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%9C%83%E5%9B%A0%E7%82%BA%E5%9B%A0%E7%82%BA%E6%B2%92%E6%9C%89%E4%B8%8B%E4%B8%80%E5%80%8BWaypoint%E8%80%8C%E8%A2%ABDestroy%E6%8E%89"><span class="nav-number">4.2.1.</span> <span class="nav-text">步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%BB%BA%E7%AB%8BWaypoints%EF%BC%8CWaypoint%E6%98%AF%E9%A1%9E%E4%BC%BC%E7%B4%80%E9%8C%84%E9%BB%9E%E7%9A%84%E5%AD%98%E5%9C%A8%EF%BC%8C%E9%80%8F%E9%81%8Escript%E8%83%BD%E8%AE%93Enemy%E8%B7%9F%E8%91%97%E5%89%8D%E6%96%B9%E7%9A%84Waypoint%E7%A7%BB%E5%8B%95%EF%BC%8C%E9%80%B2%E8%80%8C%E5%AF%A6%E7%8F%BE%E8%B7%9F%E8%91%97%E8%BB%8C%E9%81%93%E8%B5%B0%E7%9A%84%E7%95%AB%E9%9D%A2"><span class="nav-number">4.2.2.</span> <span class="nav-text">步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E7%B7%A8%E5%AF%ABEnemy%E7%9A%84Script"><span class="nav-number">4.2.3.</span> <span class="nav-text">步驟三：編寫Enemy的Script</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-3-%E6%89%93%E9%80%A0WaveSpawner"><span class="nav-number">4.3.</span> <span class="nav-text">Part 3:打造WaveSpawner</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9ACreate%E4%B8%80%E5%80%8BEmpty%E5%8F%ABGameMaster%E4%BE%86%E6%8E%A7%E5%88%B6%E6%89%80%E6%9C%89%E7%89%A9%E9%AB%94%E7%9A%84%E9%81%8B%E4%BD%9C"><span class="nav-number">4.3.1.</span> <span class="nav-text">步驟一：Create一個Empty叫GameMaster來控制所有物體的運作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%9C%A8GameMaster%E4%B8%AD%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8BScript%E5%8F%ABWaveSpawner%E4%BE%86%E6%8E%A7%E5%88%B6%E5%A0%B4%E4%B8%8A%E6%AF%8F%E4%B8%80%E6%B3%A2%E9%80%B2%E6%94%BB"><span class="nav-number">4.3.2.</span> <span class="nav-text">步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E7%B7%A8%E5%AF%ABWaveSpawner"><span class="nav-number">4.3.3.</span> <span class="nav-text">步驟三：編寫WaveSpawner</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-4-%E8%A8%AD%E5%AE%9AUI%E4%BB%8B%E9%9D%A2%EF%BC%8C%E5%8A%A0%E5%85%A5%E6%99%82%E9%96%93%E5%80%92%E6%95%B8"><span class="nav-number">4.4.</span> <span class="nav-text">Part 4:設定UI介面，加入時間倒數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9ACreate-UI-gt-Text"><span class="nav-number">4.4.1.</span> <span class="nav-text">步驟一：Create UI-&gt;Text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E7%B7%A8%E5%AF%ABWaveSpawner%E4%BE%86%E6%8E%A7%E5%88%B6%E5%80%92%E6%95%B8%E6%95%B8%E5%AD%97%E7%9A%84%E6%94%B9%E8%AE%8A"><span class="nav-number">4.4.2.</span> <span class="nav-text">步驟二：編寫WaveSpawner來控制倒數數字的改變</span></a></li></ol></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="CYR"
+      src="/img/coco.jpg">
+  <p class="site-author-name" itemprop="name">CYR</p>
+  <div class="site-description" itemprop="description">CYR不知道要放什麼的空間</div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">標籤</span></a>
+      </div>
+  </nav>
+</div>
+
+
+
+        </div>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top" role="button" aria-label="回到頂端">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="http://cyr0109.github.io/2022/02/25/Unity3D%E5%A1%94%E9%98%B2%E9%81%8A%E6%88%B2%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/img/coco.jpg">
+      <meta itemprop="name" content="CYR">
+      <meta itemprop="description" content="CYR不知道要放什麼的空間">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYRの甲島">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity3D塔防遊戲自學計畫
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">發表於</span>
+      
+
+      <time title="創建時間：2022-02-25 00:36:18 / 修改時間：00:45:23" itemprop="dateCreated datePublished" datetime="2022-02-25T00:36:18+08:00">2022-02-25</time>
+    </span>
+
+  
+    <span class="post-meta-item" title="閱讀次數" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">閱讀次數：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <img src="/img/巨人.jpg" width = "600" />
+
+<span id="more"></span>
+
+<h2 id="動機"><a href="#動機" class="headerlink" title="動機"></a>動機</h2><p>因為聽聞好友想製作遊戲講了半個學期都沒有行動，所以我想說我也來試試看好了，看能不能在短時間內超越他的進度。</p>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ol>
+<li>學習使用Unity並使用C#來Coding</li>
+<li>透過觀看全英文影片學習遊戲製作</li>
+<li>透過Unity以及免費資源包製作3D塔防遊戲</li>
+</ol>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><ol>
+<li>透過觀看<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nPW6tKeapsM">【Unity】3小時製作一個遊戲 </a> 及 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=T9BeejD3i0g">【C#】3小時初學者教學</a> 來學習如何使用Unity並使用C#來進行Coding</li>
+<li>透過觀看<a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0">How to make a Tower Defense Game</a> 來學習如何製作遊戲</li>
+</ol>
+<h2 id="遊戲實作"><a href="#遊戲實作" class="headerlink" title="遊戲實作"></a>遊戲實作</h2><h3 id="Part-1-鋪設地圖"><a href="#Part-1-鋪設地圖" class="headerlink" title="Part 1:鋪設地圖"></a>Part 1:鋪設地圖</h3><p><img src="https://lh6.googleusercontent.com/uffu1oqJ_tUIgGuPYyvOKTnHnY1qr_4R8gwLqKf4ahSc8OAMfS3jsCtcETMJleMcq8m1wUxWpWFc18YKqms_wxtNGlZP7N_WL6u0drz93Lx8O3HMXtwB5DLjcydwwdA4yXGaVzk9"></p>
+<blockquote>
+<p>學習到3d鏡頭的操作方法及如何建立Object</p>
+</blockquote>
+<h3 id="Part-2-Enemy設定"><a href="#Part-2-Enemy設定" class="headerlink" title="Part 2:Enemy設定"></a>Part 2:Enemy設定</h3><h4 id="步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉"><a href="#步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉" class="headerlink" title="步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉"></a>步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉</h4><p><img src="https://lh5.googleusercontent.com/8xrF78CESJ6L6YAxMGSLVXZJIO8p_Otd4INF5Wjfp--noUEt2_RUdMflaXlFfM4GS_TiMjF3JAHac3cS9Bb-ndq6KxzrOb5hxHXz-jUsxN52hi6VSXwdwNZRun3VdkQloDSD8sVb"></p>
+<h4 id="步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面"><a href="#步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面" class="headerlink" title="步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面"></a>步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面</h4><p><img src="https://lh4.googleusercontent.com/NqXft2Pj1K16BMTM_b8mmTuD4zrqcRDioXOrYDrnW-zeIysx_4ZHNGwRwh4GNBRu-2lAHrQqWPZBQzwLE2CqI5mzcQKTJCRBJZJ-xngY9fDJYMewvQPw-VE1PJTf1H_2-al1QgJK"></p>
+<h4 id="步驟三：編寫Enemy的Script"><a href="#步驟三：編寫Enemy的Script" class="headerlink" title="步驟三：編寫Enemy的Script"></a>步驟三：編寫Enemy的Script</h4><p><img src="https://i.imgur.com/lgTLJQ5.png"></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enemy</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed = <span class="number">1f</span>; <span class="comment">//移動速度</span></span><br><span class="line">    <span class="keyword">private</span> Transform target; <span class="comment">//建立tatget</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> wavepointIndex = <span class="number">0</span>; <span class="comment">//設定wavepointIndex從0開始</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        target = Waypoints.points[<span class="number">0</span>]; <span class="comment">//指定target=Waypoints陣列中的第一個</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//建立移動方向並使Enemy朝著target的方向前進</span></span><br><span class="line">        Vector3 dir = target.position - transform.position; <span class="comment">//指定target=Waypoints陣列中的第一個</span></span><br><span class="line">        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World); <span class="comment">//讓物體以向著Waypoint的方向移動</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//判斷與當前target的距離，如果太近就找下一個Waypoint</span></span><br><span class="line">        <span class="keyword">if</span> (Vector3.Distance(transform.position, target.position) &lt;= <span class="number">0.2f</span>) <span class="comment">//如果與當前Waypoint離太近</span></span><br><span class="line">        &#123;</span><br><span class="line">            GetNextWaypoint(); <span class="comment">//找下一個Waypoint</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//持續尋找下一個target直到沒有下一個Waypoint，並摧毀物體不讓它跑出地圖</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">GetNextWaypoint</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (wavepointIndex &gt;= Waypoints.points.Length - <span class="number">1</span>) <span class="comment">//當沒有下一個Waypoint </span></span><br><span class="line">            &#123;</span><br><span class="line">                Destroy(gameObject); <span class="comment">//摧毀物體</span></span><br><span class="line">                <span class="keyword">return</span>; <span class="comment">// 結束整個GetNextWaypoint()</span></span><br><span class="line">            &#125;</span><br><span class="line">            wavepointIndex++; </span><br><span class="line">            target = Waypoints.points[wavepointIndex]; <span class="comment">//target換成下一個Waypoint</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在過程中我了解了Prefab的用法，相較於GameObject是在場景上的物件， Prefab 是預先製作好的 GameObject，而你可以在你需要的時候，再把該物件動態載入到場景中，或者直接拖曳到場景中。</p>
+</blockquote>
+<h3 id="Part-3-打造WaveSpawner"><a href="#Part-3-打造WaveSpawner" class="headerlink" title="Part 3:打造WaveSpawner"></a>Part 3:打造WaveSpawner</h3><h4 id="步驟一：Create一個Empty叫GameMaster來控制所有物體的運作"><a href="#步驟一：Create一個Empty叫GameMaster來控制所有物體的運作" class="headerlink" title="步驟一：Create一個Empty叫GameMaster來控制所有物體的運作"></a>步驟一：Create一個Empty叫GameMaster來控制所有物體的運作</h4><h4 id="步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻"><a href="#步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻" class="headerlink" title="步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻"></a>步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻</h4><h4 id="步驟三：編寫WaveSpawner"><a href="#步驟三：編寫WaveSpawner" class="headerlink" title="步驟三：編寫WaveSpawner"></a>步驟三：編寫WaveSpawner</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WaveSpawner</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Transform enemyPrefab; <span class="comment">//Enemy</span></span><br><span class="line">    <span class="keyword">public</span> Transform SpawnPoint; <span class="comment">//召喚點</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> TimeBetweenWaves = <span class="number">5f</span>; <span class="comment">//每波進攻間隔的時間</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> Countdown = <span class="number">2f</span>; <span class="comment">//開始前的倒數時間 </span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> WaveIndex = <span class="number">0</span>; <span class="comment">//第幾次進攻</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//當倒數結束，使用StartCoroutine()執行SpawnWave()，並將倒數時間設定為每波進攻間隔的時間</span></span><br><span class="line">        <span class="keyword">if</span> (Countdown &lt;= <span class="number">0f</span>) <span class="comment">//當倒數結束</span></span><br><span class="line">        &#123;</span><br><span class="line">            StartCoroutine(SpawnWave()); <span class="comment">//  配合IEnumerator執行SpawnWave()並控制每一次執行之間的間隔時間</span></span><br><span class="line">            Countdown = TimeBetweenWaves; <span class="comment">// 將倒數時間設定為每波進攻間隔的時間</span></span><br><span class="line">        &#125;</span><br><span class="line">        Countdown -= Time.deltaTime; <span class="comment">//倒數</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根據第幾波來決定產生Enemy的數量</span></span><br><span class="line">    <span class="function">IEnumerator <span class="title">SpawnWave</span>()</span> </span><br><span class="line">    &#123;</span><br><span class="line">        WaveIndex++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; WaveIndex; i++) <span class="comment">//第幾波Wave執行幾次</span></span><br><span class="line">        &#123;</span><br><span class="line">            SpawnEnemy();</span><br><span class="line">            <span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">0.5f</span></span>)</span>; <span class="comment">//間隔時間0.5f</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 以在Instantiate()在SpawnPoint生成enemy</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SpawnEnemy</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Instantiate(enemyPrefab, SpawnPoint.position, SpawnPoint.rotation);  <span class="comment">//在SpawnPoint生成enemy</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>在這個Script中我學到了<br>1.StartCoroutine(method)、IEnumerator、yield return new WairForSeconds(時間)的用法<br>2.Instantiate()如何控制Object的生成</p>
+</blockquote>
+<h3 id="Part-4-設定UI介面，加入時間倒數"><a href="#Part-4-設定UI介面，加入時間倒數" class="headerlink" title="Part 4:設定UI介面，加入時間倒數"></a>Part 4:設定UI介面，加入時間倒數</h3><h4 id="步驟一：Create-UI-gt-Text"><a href="#步驟一：Create-UI-gt-Text" class="headerlink" title="步驟一：Create UI-&gt;Text"></a>步驟一：Create UI-&gt;Text</h4><p><img src="https://i.imgur.com/kPYaWr5.png"></p>
+<h4 id="步驟二：編寫WaveSpawner來控制倒數數字的改變"><a href="#步驟二：編寫WaveSpawner來控制倒數數字的改變" class="headerlink" title="步驟二：編寫WaveSpawner來控制倒數數字的改變"></a>步驟二：編寫WaveSpawner來控制倒數數字的改變</h4><p><img src="https://i.imgur.com/WaIaEDP.png"></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Text waveCountdownText; <span class="comment">// 定義</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">       waveCountdownText.text = Mathf.Round(Countdown).ToString(); <span class="comment">//將倒數數字顯示在螢幕上</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2022/02/10/%E7%A7%92%E4%BA%94/" rel="prev" title="秒速五釐米觀後感(有雷)">
+                  <i class="fa fa-chevron-left"></i> 秒速五釐米觀後感(有雷)
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+
+<div class="copyright">
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CYR</span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="訪客總數">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="總瀏覽次數">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 強力驅動
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+  <script src="/js/third-party/pace.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>
