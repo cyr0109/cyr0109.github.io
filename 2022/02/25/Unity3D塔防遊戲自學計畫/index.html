@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 7.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"cyr0109.github.io","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta property="og:type" content="article">
+<meta property="og:title" content="Unity3D塔防遊戲自學計畫">
+<meta property="og:url" content="https://cyr0109.github.io/2022/02/25/Unity3D%E5%A1%94%E9%98%B2%E9%81%8A%E6%88%B2%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/index.html">
+<meta property="og:site_name" content="CYR&#39;s blog">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://cyr0109.github.io/images/%E5%B7%A8%E4%BA%BA.jpg">
+<meta property="og:image" content="https://lh6.googleusercontent.com/uffu1oqJ_tUIgGuPYyvOKTnHnY1qr_4R8gwLqKf4ahSc8OAMfS3jsCtcETMJleMcq8m1wUxWpWFc18YKqms_wxtNGlZP7N_WL6u0drz93Lx8O3HMXtwB5DLjcydwwdA4yXGaVzk9">
+<meta property="og:image" content="https://lh5.googleusercontent.com/8xrF78CESJ6L6YAxMGSLVXZJIO8p_Otd4INF5Wjfp--noUEt2_RUdMflaXlFfM4GS_TiMjF3JAHac3cS9Bb-ndq6KxzrOb5hxHXz-jUsxN52hi6VSXwdwNZRun3VdkQloDSD8sVb">
+<meta property="og:image" content="https://lh4.googleusercontent.com/NqXft2Pj1K16BMTM_b8mmTuD4zrqcRDioXOrYDrnW-zeIysx_4ZHNGwRwh4GNBRu-2lAHrQqWPZBQzwLE2CqI5mzcQKTJCRBJZJ-xngY9fDJYMewvQPw-VE1PJTf1H_2-al1QgJK">
+<meta property="og:image" content="https://i.imgur.com/lgTLJQ5.png">
+<meta property="og:image" content="https://i.imgur.com/PGKcZRY.png">
+<meta property="og:image" content="https://i.imgur.com/kPYaWr5.png">
+<meta property="og:image" content="https://i.imgur.com/WaIaEDP.png">
+<meta property="og:image" content="https://i.imgur.com/RRLHjvp.png">
+<meta property="og:image" content="https://i.imgur.com/U6Y0qzL.png">
+<meta property="og:image" content="https://i.imgur.com/VPHr8Sb.png">
+<meta property="og:image" content="https://i.imgur.com/msXG05t.png">
+<meta property="og:image" content="https://i.imgur.com/RaZ3lmj.png">
+<meta property="og:image" content="https://i.imgur.com/YwgqoX5.png">
+<meta property="og:image" content="https://i.imgur.com/KkcAsO5.png">
+<meta property="og:image" content="https://i.imgur.com/jxunMQh.png">
+<meta property="og:image" content="https://i.imgur.com/oGDb7wo.png">
+<meta property="og:image" content="https://i.imgur.com/9bfzxgk.png">
+<meta property="og:image" content="https://i.imgur.com/kcq2HS5.png">
+<meta property="og:image" content="https://i.imgur.com/VWyHNaO.png">
+<meta property="og:image" content="https://i.imgur.com/dmHBSZt.png">
+<meta property="article:published_time" content="2022-02-24T16:36:18.000Z">
+<meta property="article:modified_time" content="2024-06-18T17:54:43.472Z">
+<meta property="article:author" content="CYR">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://cyr0109.github.io/images/%E5%B7%A8%E4%BA%BA.jpg">
+
+<link rel="canonical" href="https://cyr0109.github.io/2022/02/25/Unity3D%E5%A1%94%E9%98%B2%E9%81%8A%E6%88%B2%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-TW'
+  };
+</script>
+
+  <title>Unity3D塔防遊戲自學計畫 | CYR's blog</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切換導航欄">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">CYR's blog</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首頁</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>關於</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>標籤</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分類</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>歸檔</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-TW">
+    <link itemprop="mainEntityOfPage" href="https://cyr0109.github.io/2022/02/25/Unity3D%E5%A1%94%E9%98%B2%E9%81%8A%E6%88%B2%E8%87%AA%E5%AD%B8%E8%A8%88%E7%95%AB/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="CYR">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="CYR's blog">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Unity3D塔防遊戲自學計畫
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">發表於</span>
+
+              <time title="創建時間：2022-02-25 00:36:18" itemprop="dateCreated datePublished" datetime="2022-02-25T00:36:18+08:00">2022-02-25</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新於</span>
+                <time title="修改時間：2024-06-19 01:54:43" itemprop="dateModified" datetime="2024-06-19T01:54:43+08:00">2024-06-19</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <img src="/images/巨人.jpg" width = "600" />
+
+<span id="more"></span>
+
+<h2 id="動機"><a href="#動機" class="headerlink" title="動機"></a>動機</h2><p>因為聽聞好友想製作遊戲講了半個學期都沒有行動，所以我想說我也來試試看好了，看能不能在短時間內超越他的進度。</p>
+<h2 id="目標"><a href="#目標" class="headerlink" title="目標"></a>目標</h2><ol>
+<li>學習使用Unity並使用C#來Coding</li>
+<li>透過觀看全英文影片學習遊戲製作</li>
+<li>透過Unity以及免費資源包製作3D塔防遊戲</li>
+</ol>
+<h2 id="事前準備"><a href="#事前準備" class="headerlink" title="事前準備"></a>事前準備</h2><ol>
+<li>透過觀看<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=nPW6tKeapsM">【Unity】3小時製作一個遊戲 </a> 及 <a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=T9BeejD3i0g">【C#】3小時初學者教學</a> 來學習如何使用Unity並使用C#來進行Coding</li>
+<li>透過觀看<a target="_blank" rel="noopener" href="https://www.youtube.com/playlist?list=PLPV2KyIb3jR4u5jX8za5iU1cqnQPmbzG0">How to make a Tower Defense Game</a> 來學習如何製作遊戲</li>
+</ol>
+<h2 id="遊戲實作"><a href="#遊戲實作" class="headerlink" title="遊戲實作"></a>遊戲實作</h2><h3 id="Part-1-鋪設地圖"><a href="#Part-1-鋪設地圖" class="headerlink" title="Part 1:鋪設地圖"></a>Part 1:鋪設地圖</h3><p><img src="https://lh6.googleusercontent.com/uffu1oqJ_tUIgGuPYyvOKTnHnY1qr_4R8gwLqKf4ahSc8OAMfS3jsCtcETMJleMcq8m1wUxWpWFc18YKqms_wxtNGlZP7N_WL6u0drz93Lx8O3HMXtwB5DLjcydwwdA4yXGaVzk9"></p>
+<div class="note info">
+            <p>學習到3d鏡頭的操作方法及如何建立Object</p>
+          </div>
+
+<h3 id="Part-2-Enemy設定"><a href="#Part-2-Enemy設定" class="headerlink" title="Part 2:Enemy設定"></a>Part 2:Enemy設定</h3><h4 id="步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉"><a href="#步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉" class="headerlink" title="步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉"></a>步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉</h4><p><img src="https://lh5.googleusercontent.com/8xrF78CESJ6L6YAxMGSLVXZJIO8p_Otd4INF5Wjfp--noUEt2_RUdMflaXlFfM4GS_TiMjF3JAHac3cS9Bb-ndq6KxzrOb5hxHXz-jUsxN52hi6VSXwdwNZRun3VdkQloDSD8sVb"></p>
+<h4 id="步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面"><a href="#步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面" class="headerlink" title="步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面"></a>步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面</h4><p><img src="https://lh4.googleusercontent.com/NqXft2Pj1K16BMTM_b8mmTuD4zrqcRDioXOrYDrnW-zeIysx_4ZHNGwRwh4GNBRu-2lAHrQqWPZBQzwLE2CqI5mzcQKTJCRBJZJ-xngY9fDJYMewvQPw-VE1PJTf1H_2-al1QgJK"></p>
+<h4 id="步驟三：編寫Enemy的Script"><a href="#步驟三：編寫Enemy的Script" class="headerlink" title="步驟三：編寫Enemy的Script"></a>步驟三：編寫Enemy的Script</h4><p><img src="https://i.imgur.com/lgTLJQ5.png"></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Enemy</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed = <span class="number">1f</span>; <span class="comment">//移動速度</span></span><br><span class="line">    <span class="keyword">private</span> Transform target; <span class="comment">//建立tatget</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> wavepointIndex = <span class="number">0</span>; <span class="comment">//設定wavepointIndex從0開始</span></span><br><span class="line">    <span class="comment"><span class="doctag">///</span> <span class="doctag">&lt;/summary&gt;</span></span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        target = Waypoints.points[<span class="number">0</span>]; <span class="comment">//指定target=Waypoints陣列中的第一個</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//建立移動方向並使Enemy朝著target的方向前進</span></span><br><span class="line">        Vector3 dir = target.position - transform.position; <span class="comment">//指定target=Waypoints陣列中的第一個</span></span><br><span class="line">        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World); <span class="comment">//讓物體以向著Waypoint的方向移動</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//判斷與當前target的距離，如果太近就找下一個Waypoint</span></span><br><span class="line">        <span class="keyword">if</span> (Vector3.Distance(transform.position, target.position) &lt;= <span class="number">0.2f</span>) <span class="comment">//如果與當前Waypoint離太近</span></span><br><span class="line">        &#123;</span><br><span class="line">            GetNextWaypoint(); <span class="comment">//找下一個Waypoint</span></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//持續尋找下一個target直到沒有下一個Waypoint，並摧毀物體不讓它跑出地圖</span></span><br><span class="line">        <span class="function"><span class="keyword">void</span> <span class="title">GetNextWaypoint</span>()</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">if</span> (wavepointIndex &gt;= Waypoints.points.Length - <span class="number">1</span>) <span class="comment">//當沒有下一個Waypoint </span></span><br><span class="line">            &#123;</span><br><span class="line">                Destroy(gameObject); <span class="comment">//摧毀物體</span></span><br><span class="line">                <span class="keyword">return</span>; <span class="comment">// 結束整個GetNextWaypoint()</span></span><br><span class="line">            &#125;</span><br><span class="line">            wavepointIndex++; </span><br><span class="line">            target = Waypoints.points[wavepointIndex]; <span class="comment">//target換成下一個Waypoint</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<div class="note info">
+            <p>在過程中我了解了Prefab的用法，相較於GameObject是在場景上的物件， Prefab 是預先製作好的 GameObject，而你可以在你需要的時候，再把該物件動態載入到場景中，或者直接拖曳到場景中。</p>
+          </div>
+
+<h3 id="Part-3-打造WaveSpawner"><a href="#Part-3-打造WaveSpawner" class="headerlink" title="Part 3:打造WaveSpawner"></a>Part 3:打造WaveSpawner</h3><h4 id="步驟一：Create一個Empty叫GameMaster來控制所有物體的運作"><a href="#步驟一：Create一個Empty叫GameMaster來控制所有物體的運作" class="headerlink" title="步驟一：Create一個Empty叫GameMaster來控制所有物體的運作"></a>步驟一：Create一個Empty叫GameMaster來控制所有物體的運作</h4><h4 id="步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻"><a href="#步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻" class="headerlink" title="步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻"></a>步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻</h4><h4 id="步驟三：編寫WaveSpawner"><a href="#步驟三：編寫WaveSpawner" class="headerlink" title="步驟三：編寫WaveSpawner"></a>步驟三：編寫WaveSpawner</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> UnityEngine.UI;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">WaveSpawner</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> Transform enemyPrefab; <span class="comment">//Enemy</span></span><br><span class="line">    <span class="keyword">public</span> Transform SpawnPoint; <span class="comment">//召喚點</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> TimeBetweenWaves = <span class="number">5f</span>; <span class="comment">//每波進攻間隔的時間</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> Countdown = <span class="number">2f</span>; <span class="comment">//開始前的倒數時間 </span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">int</span> WaveIndex = <span class="number">0</span>; <span class="comment">//第幾次進攻</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//當倒數結束，使用StartCoroutine()執行SpawnWave()，並將倒數時間設定為每波進攻間隔的時間</span></span><br><span class="line">        <span class="keyword">if</span> (Countdown &lt;= <span class="number">0f</span>) <span class="comment">//當倒數結束</span></span><br><span class="line">        &#123;</span><br><span class="line">            StartCoroutine(SpawnWave()); <span class="comment">//  配合IEnumerator執行SpawnWave()並控制每一次執行之間的間隔時間</span></span><br><span class="line">            Countdown = TimeBetweenWaves; <span class="comment">// 將倒數時間設定為每波進攻間隔的時間</span></span><br><span class="line">        &#125;</span><br><span class="line">        Countdown -= Time.deltaTime; <span class="comment">//倒數</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//根據第幾波來決定產生Enemy的數量</span></span><br><span class="line">    <span class="function">IEnumerator <span class="title">SpawnWave</span>()</span> </span><br><span class="line">    &#123;</span><br><span class="line">        WaveIndex++;</span><br><span class="line">        <span class="keyword">for</span> (<span class="built_in">int</span> i = <span class="number">0</span>; i &lt; WaveIndex; i++) <span class="comment">//第幾波Wave執行幾次</span></span><br><span class="line">        &#123;</span><br><span class="line">            SpawnEnemy();</span><br><span class="line">            <span class="function"><span class="keyword">yield</span> <span class="keyword">return</span> <span class="keyword">new</span> <span class="title">WaitForSeconds</span>(<span class="params"><span class="number">0.5f</span></span>)</span>; <span class="comment">//間隔時間0.5f</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 以在Instantiate()在SpawnPoint生成enemy</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">SpawnEnemy</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Instantiate(enemyPrefab, SpawnPoint.position, SpawnPoint.rotation);  <span class="comment">//在SpawnPoint生成enemy</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="步驟四：調整WaveSpawner的參數"><a href="#步驟四：調整WaveSpawner的參數" class="headerlink" title="步驟四：調整WaveSpawner的參數"></a>步驟四：調整WaveSpawner的參數</h4><p><img src="https://i.imgur.com/PGKcZRY.png"></p>
+<div class="note info">
+            <p>在這個Script中我學到了<br>1.StartCoroutine(method)、IEnumerator、yield return new WairForSeconds(時間)的用法<br>2.Instantiate()如何控制Object的生成</p>
+          </div>
+<h3 id="Part-4-設定UI介面，加入時間倒數"><a href="#Part-4-設定UI介面，加入時間倒數" class="headerlink" title="Part 4:設定UI介面，加入時間倒數"></a>Part 4:設定UI介面，加入時間倒數</h3><h4 id="步驟一：Create-UI-Text"><a href="#步驟一：Create-UI-Text" class="headerlink" title="步驟一：Create UI-&gt;Text"></a>步驟一：Create UI-&gt;Text</h4><p><img src="https://i.imgur.com/kPYaWr5.png"></p>
+<h4 id="步驟二：編寫WaveSpawner來控制倒數數字的改變"><a href="#步驟二：編寫WaveSpawner來控制倒數數字的改變" class="headerlink" title="步驟二：編寫WaveSpawner來控制倒數數字的改變"></a>步驟二：編寫WaveSpawner來控制倒數數字的改變</h4><p><img src="https://i.imgur.com/WaIaEDP.png"></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> Text waveCountdownText; <span class="comment">// 定義</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">   &#123;</span><br><span class="line">       waveCountdownText.text = Mathf.Round(Countdown).ToString(); <span class="comment">//將倒數數字顯示在螢幕上</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Part-5-建立砲台"><a href="#Part-5-建立砲台" class="headerlink" title="Part 5:建立砲台"></a>Part 5:建立砲台</h3><h4 id="步驟一：自教學影片中提供的免費資源包拖曳進此Project的Asset，並可以透過調整Material來改變機體顏色"><a href="#步驟一：自教學影片中提供的免費資源包拖曳進此Project的Asset，並可以透過調整Material來改變機體顏色" class="headerlink" title="步驟一：自教學影片中提供的免費資源包拖曳進此Project的Asset，並可以透過調整Material來改變機體顏色"></a>步驟一：自教學影片中提供的免費資源包拖曳進此Project的Asset，並可以透過調整Material來改變機體顏色</h4><p><img src="https://i.imgur.com/RRLHjvp.png"></p>
+<h4 id="步驟二：建立旋轉軸，否則會如下圖旋轉而不是正常旋轉"><a href="#步驟二：建立旋轉軸，否則會如下圖旋轉而不是正常旋轉" class="headerlink" title="步驟二：建立旋轉軸，否則會如下圖旋轉而不是正常旋轉"></a>步驟二：建立旋轉軸，否則會如下圖旋轉而不是正常旋轉</h4><p><img src="https://i.imgur.com/U6Y0qzL.png"></p>
+<h4 id="步驟三：Create-empty-“Rotate”來成為旋轉軸，並將上半部機體拖入Rotate中使機體跟著Rotate旋轉"><a href="#步驟三：Create-empty-“Rotate”來成為旋轉軸，並將上半部機體拖入Rotate中使機體跟著Rotate旋轉" class="headerlink" title="步驟三：Create empty “Rotate”來成為旋轉軸，並將上半部機體拖入Rotate中使機體跟著Rotate旋轉"></a>步驟三：Create empty “Rotate”來成為旋轉軸，並將上半部機體拖入Rotate中使機體跟著Rotate旋轉</h4><div class="note danger">
+            <p>記得要將Toggle Tool Handle Position 設為Pivot，不然還是跟著原機體轉著源機體轉<br>Pivot可用於調整物體中心點，不然預設是Center</p>
+          </div>
+
+<p><img src="https://i.imgur.com/VPHr8Sb.png"></p>
+<h4 id="步驟四：在炮口Create-Empty”Firepoint”，當成Bullet生成及移動的參考點"><a href="#步驟四：在炮口Create-Empty”Firepoint”，當成Bullet生成及移動的參考點" class="headerlink" title="步驟四：在炮口Create Empty”Firepoint”，當成Bullet生成及移動的參考點"></a>步驟四：在炮口Create Empty”Firepoint”，當成Bullet生成及移動的參考點</h4><p><img src="https://i.imgur.com/msXG05t.png"></p>
+<div class="note info">
+            <p>在過程中我學到了如何引入別人已經做好的模型，也學到如何透過改變Material的顏色來將Turret調整成想要的樣子。還學到了如何透過建立新的旋轉軸來控制上半部轉動但下半部不會跟著動。</p>
+          </div>
+
+<h3 id="Part-6-砲台旋轉及攻擊"><a href="#Part-6-砲台旋轉及攻擊" class="headerlink" title="Part 6:砲台旋轉及攻擊"></a>Part 6:砲台旋轉及攻擊</h3><h4 id="步驟一：建立Bullet的prefab並編寫bullet的script"><a href="#步驟一：建立Bullet的prefab並編寫bullet的script" class="headerlink" title="步驟一：建立Bullet的prefab並編寫bullet的script"></a>步驟一：建立Bullet的prefab並編寫bullet的script</h4><p><img src="https://i.imgur.com/RaZ3lmj.png"></p>
+<figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Bullet</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Transform target; <span class="comment">//宣告Target的位置資訊</span></span><br><span class="line">    <span class="keyword">public</span> GameObject ImpactEffect;<span class="comment">//擊中時的特效</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> speed = <span class="number">70f</span>;<span class="comment">//bullet速度 </span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Seek</span>(<span class="params">Transform _target</span>) <span class="comment">//尋找target，由Turret那邊控制</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        target = _target;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (target == <span class="literal">null</span>) <span class="comment">//找不到目標就摧毀</span></span><br><span class="line">        &#123;</span><br><span class="line">            Destroy(gameObject);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Vector3 dir = target.position - transform.position;</span><br><span class="line">        <span class="built_in">float</span> distanceThisFrame = speed * Time.deltaTime;<span class="comment">//這一Frame與下一Frame之間Bullet走的距離</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span>(dir.magnitude &lt;= distanceThisFrame) <span class="comment">//如果將要打到</span></span><br><span class="line">        &#123;</span><br><span class="line">            HitTarget();</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        transform.Translate(dir.normalized * distanceThisFrame, Space.World);<span class="comment">//控制Bullet等塑像target移動</span></span><br><span class="line">        transform.LookAt(target); <span class="comment">//讓砲彈頭看向目標</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//擊中後發生的事</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">HitTarget</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GameObject effectIns = (GameObject) Instantiate(ImpactEffect, transform.position, transform.rotation);<span class="comment">//產生擊中特效</span></span><br><span class="line">        Destroy(effectIns, <span class="number">5f</span>);<span class="comment">//5f後消除特效</span></span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    	Destroy(gameObject);<span class="comment">//銷毀bullet</span></span><br><span class="line">	Destroy(Target);<span class="comment">//破壞Target</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="步驟二：編寫砲台的scirpt"><a href="#步驟二：編寫砲台的scirpt" class="headerlink" title="步驟二：編寫砲台的scirpt"></a>步驟二：編寫砲台的scirpt</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Turret</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> Transform target;</span><br><span class="line"></span><br><span class="line">    [<span class="meta">Header(<span class="string">&quot;Attibutes&quot;</span>)</span>] <span class="comment">//分類</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> range = <span class="number">15f</span>; <span class="comment">//偵測範圍</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> fireRate = <span class="number">1f</span>; <span class="comment">//射速</span></span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">float</span> fireCountdown = <span class="number">0f</span>; <span class="comment">//倒數計時</span></span><br><span class="line"></span><br><span class="line">    [<span class="meta">Header(<span class="string">&quot;Unity Setup Fields&quot;</span>)</span>] <span class="comment">//分類</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">string</span> enemyTag = <span class="string">&quot;Enemy&quot;</span>; <span class="comment">// 建立Tag以便追蹤</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Transform Rotate; <span class="comment">//旋轉軸</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> TurnSpeed = <span class="number">10f</span>; <span class="comment">//轉速</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> GameObject bulletprefab; <span class="comment">// 子彈</span></span><br><span class="line">    <span class="keyword">public</span> Transform firePoint; <span class="comment">//射出的東西</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Start is called before the first frame update</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        InvokeRepeating(<span class="string">&quot;UpdateTarget&quot;</span>, <span class="number">0f</span>, <span class="number">0.5f</span>);<span class="comment">//重新設定target</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">UpdateTarget</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag); <span class="comment">//找到有enemyTag的Gameobject放入array中</span></span><br><span class="line">        <span class="built_in">float</span> ShortestDistanceToEnemy = Mathf.Infinity; <span class="comment">// 初始化與敵人的最短距離並設為無限遠</span></span><br><span class="line">        GameObject nearestEnemy = <span class="literal">null</span>; <span class="comment">//一開始設定沒有nearestEnemy</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//找最近的Enemy</span></span><br><span class="line">        <span class="keyword">foreach</span>(GameObject enemy <span class="keyword">in</span> enemies) </span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">float</span> DistanceToEnemy = Vector3.Distance(transform.position, enemy.transform.position); <span class="comment">//將DistanceToEnemy設定為Turret與Enemy的距離</span></span><br><span class="line">            <span class="keyword">if</span> (DistanceToEnemy &lt; ShortestDistanceToEnemy) <span class="comment">//如果DistanceToEnemy小於目前最短距離</span></span><br><span class="line">            &#123;</span><br><span class="line">                ShortestDistanceToEnemy = DistanceToEnemy; <span class="comment">//將目前最短距離設為DistanceToEnemy</span></span><br><span class="line">                nearestEnemy = enemy; <span class="comment">//將最近的Enemy設定為當前的enemy</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//判斷目前有沒有可攻擊的target</span></span><br><span class="line">        <span class="keyword">if</span> (nearestEnemy != <span class="literal">null</span> &amp;&amp; ShortestDistanceToEnemy &lt; range)</span><br><span class="line">        &#123;</span><br><span class="line">            target = nearestEnemy.transform;</span><br><span class="line">        &#125;<span class="keyword">else</span></span><br><span class="line">        &#123;</span><br><span class="line">            target = <span class="literal">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// Update is called once per frame</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//判斷有無target</span></span><br><span class="line">        <span class="keyword">if</span> (target == <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//控制砲台對著target轉動</span></span><br><span class="line">        Vector3 dir = target.position - transform.position;</span><br><span class="line">        Quaternion lookRotation = Quaternion.LookRotation(dir);</span><br><span class="line">        Vector3 rotation = Quaternion.Lerp(Rotate.rotation , lookRotation , Time.deltaTime * TurnSpeed).eulerAngles;</span><br><span class="line">        Rotate.rotation = Quaternion.Euler(<span class="number">0f</span>, rotation.y, <span class="number">0f</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 倒數結束開始射擊</span></span><br><span class="line">        <span class="keyword">if</span>( fireCountdown &lt;<span class="number">0f</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            Shoot();</span><br><span class="line">            fireCountdown = <span class="number">1</span> / fireRate;</span><br><span class="line">        &#125;</span><br><span class="line">        fireCountdown -= Time.deltaTime;<span class="comment">//倒數</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//控制射擊事項</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Shoot</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        GameObject bulletGo = (GameObject) Instantiate(bulletprefab, firePoint.position, firePoint.rotation);</span><br><span class="line">        Bullet bullet = bulletGo.GetComponent&lt;Bullet&gt;();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (bullet != <span class="literal">null</span>)</span><br><span class="line">            bullet.Seek(target);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//可視化range範圍</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnDrawGizmosSelected</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Gizmos.color = Color.red;</span><br><span class="line">        Gizmos.DrawWireSphere(transform.position, range);       </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="步驟三：調整砲塔參數"><a href="#步驟三：調整砲塔參數" class="headerlink" title="步驟三：調整砲塔參數"></a>步驟三：調整砲塔參數</h4><p>將EnemyTag設為”Enemy”以追蹤Enemy的Object<br>將Rotate設為旋轉軸”Rotate”<br>將BulletPrefab設為Bullet的Prefab<br>將FirePoint設為炮口的Firepoint<br><img src="https://i.imgur.com/YwgqoX5.png"></p>
+<div class="note info">
+            <p>在過程中我學到了</p><ol><li>整理可調整參數的方法</li><li>判斷範圍內有無可攻擊的Enemy的方法</li><li>控制砲台跟著目標旋轉的方法</li><li>讓攻擊範圍可化的方法</li></ol>
+          </div>
+
+<h3 id="Part-7-調整鏡頭"><a href="#Part-7-調整鏡頭" class="headerlink" title="Part 7:調整鏡頭"></a>Part 7:調整鏡頭</h3><h4 id="步驟一-在main-camera-中創建一個叫做cameraController的script"><a href="#步驟一-在main-camera-中創建一個叫做cameraController的script" class="headerlink" title="步驟一:在main camera 中創建一個叫做cameraController的script"></a>步驟一:在main camera 中創建一個叫做cameraController的script</h4><h4 id="步驟二-編寫cameraController"><a href="#步驟二-編寫cameraController" class="headerlink" title="步驟二:編寫cameraController"></a>步驟二:編寫cameraController</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> System.Collections;</span><br><span class="line"><span class="keyword">using</span> System.Collections.Generic;</span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">CameraComtroller</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="built_in">bool</span> doMovement = <span class="literal">true</span>; <span class="comment">//設置布林函數確認能否移動</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> panSpeed = <span class="number">30f</span>; <span class="comment">//宣告移動速度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> panBorderThickness = <span class="number">10f</span>; <span class="comment">//宣告邊界厚度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> scrollSpeed = <span class="number">5f</span>; <span class="comment">//宣告滾動速度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> minY = <span class="number">10f</span>; <span class="comment">//宣告鏡頭最低高度</span></span><br><span class="line">    <span class="keyword">public</span> <span class="built_in">float</span> maxY = <span class="number">80f</span>; <span class="comment">//宣告鏡頭最低高度</span></span><br><span class="line">   </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Update</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">//透過按鍵調整鏡頭位置</span></span><br><span class="line">        <span class="keyword">if</span> (Input.GetKey(<span class="string">&quot;w&quot;</span>) ) </span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.left * panSpeed *Time.deltaTime,Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKey(<span class="string">&quot;s&quot;</span>) )</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKey(<span class="string">&quot;d&quot;</span>) )</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.GetKey(<span class="string">&quot;a&quot;</span>) )</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//滑鼠滾輪控制鏡頭高度</span></span><br><span class="line">        <span class="built_in">float</span> scroll = Input.GetAxis(<span class="string">&quot;Mouse ScrollWheel&quot;</span>);</span><br><span class="line">        Vector3 pos = transform.position;</span><br><span class="line">        pos.y -= scroll * <span class="number">1000</span> * scrollSpeed * Time.deltaTime;</span><br><span class="line">        pos.y = Mathf.Clamp(pos.y, minY, maxY); <span class="comment">//將pos.y限制在maxY與minY之間</span></span><br><span class="line">        transform.position = pos;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//假如按了esc就改變可否移動的狀態</span></span><br><span class="line">        <span class="keyword">if</span> (Input.GetKeyDown(KeyCode.Escape))</span><br><span class="line">            doMovement = !doMovement;</span><br><span class="line">        <span class="keyword">if</span> (!doMovement)</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//如果滑鼠游標超過邊界，鏡頭就會移動</span></span><br><span class="line">        <span class="keyword">if</span> (Input.mousePosition.y &gt;= Screen.height - panBorderThickness)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.left * panSpeed * Time.deltaTime, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.mousePosition.y &lt;= panBorderThickness)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.right * panSpeed * Time.deltaTime, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.mousePosition.x &gt;= Screen.width - panBorderThickness)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.forward * panSpeed * Time.deltaTime, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (Input.mousePosition.x &lt;= panBorderThickness)</span><br><span class="line">        &#123;</span><br><span class="line">            transform.Translate(Vector3.back * panSpeed * Time.deltaTime, Space.World);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="步驟三：調整參數"><a href="#步驟三：調整參數" class="headerlink" title="步驟三：調整參數"></a>步驟三：調整參數</h4><p><img src="https://i.imgur.com/KkcAsO5.png"></p>
+<h3 id="Part-8-在遊戲畫面中建立砲台"><a href="#Part-8-在遊戲畫面中建立砲台" class="headerlink" title="Part 8:在遊戲畫面中建立砲台"></a>Part 8:在遊戲畫面中建立砲台</h3><h4 id="步驟一：在GameMaster中建立一個名為BuildManager的script來控制建立砲台的事項"><a href="#步驟一：在GameMaster中建立一個名為BuildManager的script來控制建立砲台的事項" class="headerlink" title="步驟一：在GameMaster中建立一個名為BuildManager的script來控制建立砲台的事項"></a>步驟一：在GameMaster中建立一個名為BuildManager的script來控制建立砲台的事項</h4><p><img src="https://i.imgur.com/jxunMQh.png"></p>
+<h4 id="步驟二：編寫BulidManager"><a href="#步驟二：編寫BulidManager" class="headerlink" title="步驟二：編寫BulidManager"></a>步驟二：編寫BulidManager</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">BuildManager</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> BuildManager instance; <span class="comment">//建立一個靜態的instance</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment">//確保不會有複數個BuildManger的instance</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Awake</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span>(instance != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;在螢幕上超過一個BuildManager&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        instance = <span class="keyword">this</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> GameObject standardTurretPrefab;<span class="comment">//標準砲台Prefab</span></span><br><span class="line">    <span class="keyword">public</span> GameObject missilLauncherPrefab;<span class="comment">//飛彈發射器的Prefab</span></span><br><span class="line">    <span class="keyword">private</span> GameObject turretToBuild;<span class="comment">//將要被建立的砲台</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//找要蓋的砲台的gmaeobject</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> GameObject <span class="title">GetTurretToBuild</span>()</span> </span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">return</span> turretToBuild;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//設定要被蓋的炮台是哪種</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span>  <span class="title">SetTurretToBuild</span> (<span class="params"> GameObject turret</span>)</span></span><br><span class="line">    &#123;</span><br><span class="line">        turretToBuild = turret;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="步驟：建立叫做Nodes的Script-並套用在全部的Node上"><a href="#步驟：建立叫做Nodes的Script-並套用在全部的Node上" class="headerlink" title="步驟：建立叫做Nodes的Script 並套用在全部的Node上"></a>步驟：建立叫做Nodes的Script 並套用在全部的Node上</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Node</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;   </span><br><span class="line">    <span class="keyword">private</span> Color startColor;<span class="comment">//宣告Nodes開始的顏色</span></span><br><span class="line">    <span class="keyword">public</span> Color hoverColor; <span class="comment">//滑鼠在Nodes上方時要顯示的顏色</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">public</span> Vector3 positionOffset; <span class="comment">//重置位置的參數，目的是讓砲台生成在Nodes上而非Nodes中</span></span><br><span class="line">    <span class="keyword">private</span> Renderer rend;<span class="comment">// 宣告一個rend</span></span><br><span class="line">   </span><br><span class="line">    <span class="keyword">private</span> GameObject turret; <span class="comment">//宣告turret的gameobject</span></span><br><span class="line"></span><br><span class="line">    BuildManager buildManager; <span class="comment">//宣告一個buildManger</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        rend = GetComponent&lt;Renderer&gt;(); <span class="comment">//將rend設定為此node的外觀設定</span></span><br><span class="line">        startColor = rend.material.color;<span class="comment">//將開始的顏色指定為原本的顏色</span></span><br><span class="line">        buildManager = BuildManager.instance;<span class="comment">//引進將BuildManager.instance讓Nodes的Script可以使用BuildManger的內容</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnMouseDown</span>()<span class="comment">//當按了node</span></span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (buildManager.GetTurretToBuild() == <span class="literal">null</span>) <span class="comment">//如果沒有東西可以蓋，也不執行接下來的事</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (turret != <span class="literal">null</span>) <span class="comment">// 如果node上已經有turret，也不執行接下來的事</span></span><br><span class="line">        &#123;</span><br><span class="line">            Debug.Log(<span class="string">&quot;已經有炮台了&quot;</span>);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        GameObject turretToBuild = BuildManager.instance.GetTurretToBuild();<span class="comment">//取得要蓋的砲台</span></span><br><span class="line">        turret = (GameObject)Instantiate(turretToBuild, transform.position + positionOffset, transform.rotation);<span class="comment">//在此Node上生成turret</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//當鼠標在此node上</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnMouseEnter</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        <span class="keyword">if</span> (EventSystem.current.IsPointerOverGameObject())<span class="comment">//為了讓砲台圖示擋住node，所以鼠標如果在砲台上就不執行接下來的事</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (buildManager.GetTurretToBuild() == <span class="literal">null</span>) <span class="comment">//如果沒有東西可以蓋，也不執行接下來的事</span></span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        </span><br><span class="line">        rend.material.color = hoverColor; <span class="comment">//Node的顏色設定為hoverColor</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//當鼠標離開</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">OnMouseExit</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        rend.material.color = startColor;<span class="comment">//Node的顏色設定為一開始的顏色</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/oGDb7wo.png"><br>(建立砲台前變更Nodes顏色)</p>
+<h3 id="Part-9-建立商店"><a href="#Part-9-建立商店" class="headerlink" title="Part 9:建立商店"></a>Part 9:建立商店</h3><h4 id="步驟一：建立在先前建立的Canva中建立一個panel"><a href="#步驟一：建立在先前建立的Canva中建立一個panel" class="headerlink" title="步驟一：建立在先前建立的Canva中建立一個panel"></a>步驟一：建立在先前建立的Canva中建立一個panel</h4><p>然後在panel上建立一個button，然後將panel命名為Shop，並在Shop中新增一個component叫Horizontal layout group</p>
+<p><img src="https://i.imgur.com/9bfzxgk.png"></p>
+<p>再調整button的圖案為我們要的砲台<br><img src="https://i.imgur.com/kcq2HS5.png"></p>
+<h4 id="步驟二：在Shop中建立一個叫做Shop的Script"><a href="#步驟二：在Shop中建立一個叫做Shop的Script" class="headerlink" title="步驟二：在Shop中建立一個叫做Shop的Script"></a>步驟二：在Shop中建立一個叫做Shop的Script</h4><figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">using</span> UnityEngine;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">Shop</span> : <span class="title">MonoBehaviour</span></span><br><span class="line">&#123;</span><br><span class="line">    BuildManager buildManager; <span class="comment">//宣告一個buildManger</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//一開始的時候將buildManager賦予BuildManager.instance讓Shop的Script可以使用BuildManger的內容</span></span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">Start</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        buildManager = BuildManager.instance;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//要選標準砲台來蓋</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">SelectStandardTurret</span>()</span></span><br><span class="line">    &#123;</span><br><span class="line">        Debug.Log(<span class="string">&quot;選了standardTurret&quot;</span>);</span><br><span class="line">        buildManager.SetTurretToBuild(buildManager.standardTurretPrefab);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><img src="https://i.imgur.com/VWyHNaO.png"><br>(點選砲台後，在Nodes建立砲台)</p>
+<h3 id="Part-10-建立飛彈發射器-Missile-Launcher"><a href="#Part-10-建立飛彈發射器-Missile-Launcher" class="headerlink" title="Part 10: 建立飛彈發射器(Missile Launcher)"></a>Part 10: 建立飛彈發射器(Missile Launcher)</h3><h4 id="步驟一：引入Missile-Launcher的model，就跟之前引入標準砲台一樣"><a href="#步驟一：引入Missile-Launcher的model，就跟之前引入標準砲台一樣" class="headerlink" title="步驟一：引入Missile Launcher的model，就跟之前引入標準砲台一樣"></a>步驟一：引入Missile Launcher的model，就跟之前引入標準砲台一樣</h4><p><img src="https://i.imgur.com/dmHBSZt.png"></p>
+<h4 id="步驟二：將之前Turret的script套用在Missile-Launcher上"><a href="#步驟二：將之前Turret的script套用在Missile-Launcher上" class="headerlink" title="步驟二：將之前Turret的script套用在Missile Launcher上"></a>步驟二：將之前Turret的script套用在Missile Launcher上</h4><h3 id="Part-11-更改子彈碰撞特效"><a href="#Part-11-更改子彈碰撞特效" class="headerlink" title="Part 11: 更改子彈碰撞特效"></a>Part 11: 更改子彈碰撞特效</h3>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/02/09/hello-world/" rel="prev" title="Hello World">
+      <i class="fa fa-chevron-left"></i> Hello World
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目錄
+        </li>
+        <li class="sidebar-nav-overview">
+          本站概要
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8B%95%E6%A9%9F"><span class="nav-number">1.</span> <span class="nav-text">動機</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%9B%AE%E6%A8%99"><span class="nav-number">2.</span> <span class="nav-text">目標</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%89%8D%E6%BA%96%E5%82%99"><span class="nav-number">3.</span> <span class="nav-text">事前準備</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%81%8A%E6%88%B2%E5%AF%A6%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">遊戲實作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-1-%E9%8B%AA%E8%A8%AD%E5%9C%B0%E5%9C%96"><span class="nav-number">4.1.</span> <span class="nav-text">Part 1:鋪設地圖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-2-Enemy%E8%A8%AD%E5%AE%9A"><span class="nav-number">4.2.</span> <span class="nav-text">Part 2:Enemy設定</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%BB%BA%E7%AB%8BEnemy%EF%BC%8C%E4%B8%A6%E6%8B%96%E6%9B%B3%E9%80%B2Prefab%E8%B3%87%E6%96%99%E5%A4%BE%EF%BC%8C%E4%BB%A5%E4%BE%BF%E4%B9%8B%E5%BE%8C%E6%AF%8F%E4%B8%80%E6%AC%A1%E5%91%BC%E5%8F%AB%E9%83%BD%E8%83%BD%E8%A2%ABclone%EF%BC%8C%E8%80%8C%E4%B8%8D%E6%9C%83%E5%9B%A0%E7%82%BA%E5%9B%A0%E7%82%BA%E6%B2%92%E6%9C%89%E4%B8%8B%E4%B8%80%E5%80%8BWaypoint%E8%80%8C%E8%A2%ABDestroy%E6%8E%89"><span class="nav-number">4.2.1.</span> <span class="nav-text">步驟一：建立Enemy，並拖曳進Prefab資料夾，以便之後每一次呼叫都能被clone，而不會因為因為沒有下一個Waypoint而被Destroy掉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%BB%BA%E7%AB%8BWaypoints%EF%BC%8CWaypoint%E6%98%AF%E9%A1%9E%E4%BC%BC%E7%B4%80%E9%8C%84%E9%BB%9E%E7%9A%84%E5%AD%98%E5%9C%A8%EF%BC%8C%E9%80%8F%E9%81%8Escript%E8%83%BD%E8%AE%93Enemy%E8%B7%9F%E8%91%97%E5%89%8D%E6%96%B9%E7%9A%84Waypoint%E7%A7%BB%E5%8B%95%EF%BC%8C%E9%80%B2%E8%80%8C%E5%AF%A6%E7%8F%BE%E8%B7%9F%E8%91%97%E8%BB%8C%E9%81%93%E8%B5%B0%E7%9A%84%E7%95%AB%E9%9D%A2"><span class="nav-number">4.2.2.</span> <span class="nav-text">步驟二：建立Waypoints，Waypoint是類似紀錄點的存在，透過script能讓Enemy跟著前方的Waypoint移動，進而實現跟著軌道走的畫面</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E7%B7%A8%E5%AF%ABEnemy%E7%9A%84Script"><span class="nav-number">4.2.3.</span> <span class="nav-text">步驟三：編寫Enemy的Script</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-3-%E6%89%93%E9%80%A0WaveSpawner"><span class="nav-number">4.3.</span> <span class="nav-text">Part 3:打造WaveSpawner</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9ACreate%E4%B8%80%E5%80%8BEmpty%E5%8F%ABGameMaster%E4%BE%86%E6%8E%A7%E5%88%B6%E6%89%80%E6%9C%89%E7%89%A9%E9%AB%94%E7%9A%84%E9%81%8B%E4%BD%9C"><span class="nav-number">4.3.1.</span> <span class="nav-text">步驟一：Create一個Empty叫GameMaster來控制所有物體的運作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%9C%A8GameMaster%E4%B8%AD%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8BScript%E5%8F%ABWaveSpawner%E4%BE%86%E6%8E%A7%E5%88%B6%E5%A0%B4%E4%B8%8A%E6%AF%8F%E4%B8%80%E6%B3%A2%E9%80%B2%E6%94%BB"><span class="nav-number">4.3.2.</span> <span class="nav-text">步驟二：在GameMaster中建立一個Script叫WaveSpawner來控制場上每一波進攻</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E7%B7%A8%E5%AF%ABWaveSpawner"><span class="nav-number">4.3.3.</span> <span class="nav-text">步驟三：編寫WaveSpawner</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E5%9B%9B%EF%BC%9A%E8%AA%BF%E6%95%B4WaveSpawner%E7%9A%84%E5%8F%83%E6%95%B8"><span class="nav-number">4.3.4.</span> <span class="nav-text">步驟四：調整WaveSpawner的參數</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-4-%E8%A8%AD%E5%AE%9AUI%E4%BB%8B%E9%9D%A2%EF%BC%8C%E5%8A%A0%E5%85%A5%E6%99%82%E9%96%93%E5%80%92%E6%95%B8"><span class="nav-number">4.4.</span> <span class="nav-text">Part 4:設定UI介面，加入時間倒數</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9ACreate-UI-Text"><span class="nav-number">4.4.1.</span> <span class="nav-text">步驟一：Create UI-&gt;Text</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E7%B7%A8%E5%AF%ABWaveSpawner%E4%BE%86%E6%8E%A7%E5%88%B6%E5%80%92%E6%95%B8%E6%95%B8%E5%AD%97%E7%9A%84%E6%94%B9%E8%AE%8A"><span class="nav-number">4.4.2.</span> <span class="nav-text">步驟二：編寫WaveSpawner來控制倒數數字的改變</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-5-%E5%BB%BA%E7%AB%8B%E7%A0%B2%E5%8F%B0"><span class="nav-number">4.5.</span> <span class="nav-text">Part 5:建立砲台</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E8%87%AA%E6%95%99%E5%AD%B8%E5%BD%B1%E7%89%87%E4%B8%AD%E6%8F%90%E4%BE%9B%E7%9A%84%E5%85%8D%E8%B2%BB%E8%B3%87%E6%BA%90%E5%8C%85%E6%8B%96%E6%9B%B3%E9%80%B2%E6%AD%A4Project%E7%9A%84Asset%EF%BC%8C%E4%B8%A6%E5%8F%AF%E4%BB%A5%E9%80%8F%E9%81%8E%E8%AA%BF%E6%95%B4Material%E4%BE%86%E6%94%B9%E8%AE%8A%E6%A9%9F%E9%AB%94%E9%A1%8F%E8%89%B2"><span class="nav-number">4.5.1.</span> <span class="nav-text">步驟一：自教學影片中提供的免費資源包拖曳進此Project的Asset，並可以透過調整Material來改變機體顏色</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%BB%BA%E7%AB%8B%E6%97%8B%E8%BD%89%E8%BB%B8%EF%BC%8C%E5%90%A6%E5%89%87%E6%9C%83%E5%A6%82%E4%B8%8B%E5%9C%96%E6%97%8B%E8%BD%89%E8%80%8C%E4%B8%8D%E6%98%AF%E6%AD%A3%E5%B8%B8%E6%97%8B%E8%BD%89"><span class="nav-number">4.5.2.</span> <span class="nav-text">步驟二：建立旋轉軸，否則會如下圖旋轉而不是正常旋轉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9ACreate-empty-%E2%80%9CRotate%E2%80%9D%E4%BE%86%E6%88%90%E7%82%BA%E6%97%8B%E8%BD%89%E8%BB%B8%EF%BC%8C%E4%B8%A6%E5%B0%87%E4%B8%8A%E5%8D%8A%E9%83%A8%E6%A9%9F%E9%AB%94%E6%8B%96%E5%85%A5Rotate%E4%B8%AD%E4%BD%BF%E6%A9%9F%E9%AB%94%E8%B7%9F%E8%91%97Rotate%E6%97%8B%E8%BD%89"><span class="nav-number">4.5.3.</span> <span class="nav-text">步驟三：Create empty “Rotate”來成為旋轉軸，並將上半部機體拖入Rotate中使機體跟著Rotate旋轉</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E5%9B%9B%EF%BC%9A%E5%9C%A8%E7%82%AE%E5%8F%A3Create-Empty%E2%80%9DFirepoint%E2%80%9D%EF%BC%8C%E7%95%B6%E6%88%90Bullet%E7%94%9F%E6%88%90%E5%8F%8A%E7%A7%BB%E5%8B%95%E7%9A%84%E5%8F%83%E8%80%83%E9%BB%9E"><span class="nav-number">4.5.4.</span> <span class="nav-text">步驟四：在炮口Create Empty”Firepoint”，當成Bullet生成及移動的參考點</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-6-%E7%A0%B2%E5%8F%B0%E6%97%8B%E8%BD%89%E5%8F%8A%E6%94%BB%E6%93%8A"><span class="nav-number">4.6.</span> <span class="nav-text">Part 6:砲台旋轉及攻擊</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%BB%BA%E7%AB%8BBullet%E7%9A%84prefab%E4%B8%A6%E7%B7%A8%E5%AF%ABbullet%E7%9A%84script"><span class="nav-number">4.6.1.</span> <span class="nav-text">步驟一：建立Bullet的prefab並編寫bullet的script</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E7%B7%A8%E5%AF%AB%E7%A0%B2%E5%8F%B0%E7%9A%84scirpt"><span class="nav-number">4.6.2.</span> <span class="nav-text">步驟二：編寫砲台的scirpt</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E8%AA%BF%E6%95%B4%E7%A0%B2%E5%A1%94%E5%8F%83%E6%95%B8"><span class="nav-number">4.6.3.</span> <span class="nav-text">步驟三：調整砲塔參數</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-7-%E8%AA%BF%E6%95%B4%E9%8F%A1%E9%A0%AD"><span class="nav-number">4.7.</span> <span class="nav-text">Part 7:調整鏡頭</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80-%E5%9C%A8main-camera-%E4%B8%AD%E5%89%B5%E5%BB%BA%E4%B8%80%E5%80%8B%E5%8F%AB%E5%81%9AcameraController%E7%9A%84script"><span class="nav-number">4.7.1.</span> <span class="nav-text">步驟一:在main camera 中創建一個叫做cameraController的script</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C-%E7%B7%A8%E5%AF%ABcameraController"><span class="nav-number">4.7.2.</span> <span class="nav-text">步驟二:編寫cameraController</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E8%AA%BF%E6%95%B4%E5%8F%83%E6%95%B8"><span class="nav-number">4.7.3.</span> <span class="nav-text">步驟三：調整參數</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-8-%E5%9C%A8%E9%81%8A%E6%88%B2%E7%95%AB%E9%9D%A2%E4%B8%AD%E5%BB%BA%E7%AB%8B%E7%A0%B2%E5%8F%B0"><span class="nav-number">4.8.</span> <span class="nav-text">Part 8:在遊戲畫面中建立砲台</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%9C%A8GameMaster%E4%B8%AD%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%90%8D%E7%82%BABuildManager%E7%9A%84script%E4%BE%86%E6%8E%A7%E5%88%B6%E5%BB%BA%E7%AB%8B%E7%A0%B2%E5%8F%B0%E7%9A%84%E4%BA%8B%E9%A0%85"><span class="nav-number">4.8.1.</span> <span class="nav-text">步驟一：在GameMaster中建立一個名為BuildManager的script來控制建立砲台的事項</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E7%B7%A8%E5%AF%ABBulidManager"><span class="nav-number">4.8.2.</span> <span class="nav-text">步驟二：編寫BulidManager</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%EF%BC%9A%E5%BB%BA%E7%AB%8B%E5%8F%AB%E5%81%9ANodes%E7%9A%84Script-%E4%B8%A6%E5%A5%97%E7%94%A8%E5%9C%A8%E5%85%A8%E9%83%A8%E7%9A%84Node%E4%B8%8A"><span class="nav-number">4.8.3.</span> <span class="nav-text">步驟：建立叫做Nodes的Script 並套用在全部的Node上</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-9-%E5%BB%BA%E7%AB%8B%E5%95%86%E5%BA%97"><span class="nav-number">4.9.</span> <span class="nav-text">Part 9:建立商店</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%BB%BA%E7%AB%8B%E5%9C%A8%E5%85%88%E5%89%8D%E5%BB%BA%E7%AB%8B%E7%9A%84Canva%E4%B8%AD%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8Bpanel"><span class="nav-number">4.9.1.</span> <span class="nav-text">步驟一：建立在先前建立的Canva中建立一個panel</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%9C%A8Shop%E4%B8%AD%E5%BB%BA%E7%AB%8B%E4%B8%80%E5%80%8B%E5%8F%AB%E5%81%9AShop%E7%9A%84Script"><span class="nav-number">4.9.2.</span> <span class="nav-text">步驟二：在Shop中建立一個叫做Shop的Script</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-10-%E5%BB%BA%E7%AB%8B%E9%A3%9B%E5%BD%88%E7%99%BC%E5%B0%84%E5%99%A8-Missile-Launcher"><span class="nav-number">4.10.</span> <span class="nav-text">Part 10: 建立飛彈發射器(Missile Launcher)</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E5%BC%95%E5%85%A5Missile-Launcher%E7%9A%84model%EF%BC%8C%E5%B0%B1%E8%B7%9F%E4%B9%8B%E5%89%8D%E5%BC%95%E5%85%A5%E6%A8%99%E6%BA%96%E7%A0%B2%E5%8F%B0%E4%B8%80%E6%A8%A3"><span class="nav-number">4.10.1.</span> <span class="nav-text">步驟一：引入Missile Launcher的model，就跟之前引入標準砲台一樣</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E5%B0%87%E4%B9%8B%E5%89%8DTurret%E7%9A%84script%E5%A5%97%E7%94%A8%E5%9C%A8Missile-Launcher%E4%B8%8A"><span class="nav-number">4.10.2.</span> <span class="nav-text">步驟二：將之前Turret的script套用在Missile Launcher上</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Part-11-%E6%9B%B4%E6%94%B9%E5%AD%90%E5%BD%88%E7%A2%B0%E6%92%9E%E7%89%B9%E6%95%88"><span class="nav-number">4.11.</span> <span class="nav-text">Part 11: 更改子彈碰撞特效</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">CYR</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">文章</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2024</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">CYR</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 強力驅動
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
